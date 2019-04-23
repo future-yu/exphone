@@ -1,28 +1,60 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div class="content">
+        <div class="tabbar">
+            <router-link to="/">
+                <span @click="changeBar(0)" :class="['bar_title',tab_index===0?'bar_active':'']">首页</span>
+            </router-link>
+            <router-link to="/user">
+                <span @click="changeBar(1)" :class="['bar_title',tab_index===1?'bar_active':'']">我的</span>
+            </router-link>
+        </div>
+        <router-view></router-view>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+    export default {
+        name: 'exphone',
+        created: () => {
 
-export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
-}
+        },
+        data() {
+            return {
+                tab_index: 0,
+            };
+        },
+        methods:{
+            changeBar(tab_index){
+                this.tab_index = tab_index;
+            }
+        }
+    };
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+    body,ul,li{
+        margin: 0;
+        padding: 0;
+    }
+    .tabbar{
+        overflow: hidden;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+    }
+    .bar_title{
+        float: left;
+        font-size: 20px;
+        width: 50%;
+        font-weight: bold;
+        text-align: center;
+        color: #000;
+        line-height: 40px;
+    }
+    .bar_active{
+        color: #fff;
+        background-color: rgba(0,200,0,0.8);
+    }
 </style>
