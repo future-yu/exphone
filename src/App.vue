@@ -43,6 +43,7 @@
         left: 0;
         width: 100%;
         background-color: #fff;
+        z-index: 900;
     }
     .bar_title{
         float: left;
