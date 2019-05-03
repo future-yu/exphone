@@ -7,8 +7,8 @@ import 'element-ui/lib/theme-chalk/index.css';
 import api from './api/index'
 
 Vue.config.productionTip = false;
-Vue.use(ElementUI)
-Vue.use(router)
+Vue.use(ElementUI);
+Vue.use(router);
 
 Vue.prototype.api = api;
 new Vue({

@@ -22,9 +22,9 @@
 </template>
 
 <script>
-    import test_img from '../static/images/test.jpg';
+    // import test_img from '../static/images/test.jpg';
     import TagList from '../components/TagList'
-
+    let test_img = '';
     export default {
         name: "PostDetail",
         data: () => {

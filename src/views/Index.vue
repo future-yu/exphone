@@ -12,7 +12,7 @@
                 <router-link v-for="item in item_data" :key="item.id" to="/post/detail/1">
                     <el-col :sm="8" :md="6">
                         <div class="item">
-                            <img :src="item.img_url" :alt="item.img_title" class="item_img">
+                            <img :src="item.img_url[1]||item.img_url[0]" :alt="item.img_title" class="item_img">
                             <p class="item_title">{{item.img_title}}</p>
                         </div>
                     </el-col>
@@ -26,55 +26,16 @@
 <script>
     export default {
         name: "Index",
+        created:function(){
+            this.api.getPostPage(1).then(res=>{
+                // debugger
+                this.item_data = res.data;
+            })
+        },
         data: () => {
             return {
                 input_value: '',
-                item_data: [{
-                    img_url: 'https://pics6.baidu.com/feed/e850352ac65c1038b18c032c7d112b17b17e8970.jpeg?token=6f22e91963efd0cdf25dadf74204aea5&s=DCF225C24D4A0E5500D0B0020300B080',
-                    img_title: '金正恩今晨启程访俄 将与普京在符拉迪沃斯托克会面'
-                }, {
-                    img_url: 'https://pics6.baidu.com/feed/e850352ac65c1038b18c032c7d112b17b17e8970.jpeg?token=6f22e91963efd0cdf25dadf74204aea5&s=DCF225C24D4A0E5500D0B0020300B080',
-                    img_title: '金正恩今晨启程访俄 将与普京在符拉迪沃斯托克会面'
-                }, {
-                    img_url: 'https://pics6.baidu.com/feed/e850352ac65c1038b18c032c7d112b17b17e8970.jpeg?token=6f22e91963efd0cdf25dadf74204aea5&s=DCF225C24D4A0E5500D0B0020300B080',
-                    img_title: '金正恩今晨启程访俄 将与普京在符拉迪沃斯托克会面'
-                }, {
-                    img_url: 'https://pics6.baidu.com/feed/e850352ac65c1038b18c032c7d112b17b17e8970.jpeg?token=6f22e91963efd0cdf25dadf74204aea5&s=DCF225C24D4A0E5500D0B0020300B080',
-                    img_title: '金正恩今晨启程访俄 将与普京在符拉迪沃斯托克会面'
-                }, {
-                    img_url: 'https://pics6.baidu.com/feed/e850352ac65c1038b18c032c7d112b17b17e8970.jpeg?token=6f22e91963efd0cdf25dadf74204aea5&s=DCF225C24D4A0E5500D0B0020300B080',
-                    img_title: '金正恩今晨启程访俄 将与普京在符拉迪沃斯托克会面'
-                }, {
-                    img_url: 'https://pics6.baidu.com/feed/e850352ac65c1038b18c032c7d112b17b17e8970.jpeg?token=6f22e91963efd0cdf25dadf74204aea5&s=DCF225C24D4A0E5500D0B0020300B080',
-                    img_title: '金正恩今晨启程访俄 将与普京在符拉迪沃斯托克会面'
-                }, {
-                    img_url: 'https://pics6.baidu.com/feed/e850352ac65c1038b18c032c7d112b17b17e8970.jpeg?token=6f22e91963efd0cdf25dadf74204aea5&s=DCF225C24D4A0E5500D0B0020300B080',
-                    img_title: '金正恩今晨启程访俄 将与普京在符拉迪沃斯托克会面'
-                }, {
-                    img_url: 'https://pics6.baidu.com/feed/e850352ac65c1038b18c032c7d112b17b17e8970.jpeg?token=6f22e91963efd0cdf25dadf74204aea5&s=DCF225C24D4A0E5500D0B0020300B080',
-                    img_title: '金正恩今晨启程访俄 将与普京在符拉迪沃斯托克会面'
-                }, {
-                    img_url: 'https://pics6.baidu.com/feed/e850352ac65c1038b18c032c7d112b17b17e8970.jpeg?token=6f22e91963efd0cdf25dadf74204aea5&s=DCF225C24D4A0E5500D0B0020300B080',
-                    img_title: '金正恩今晨启程访俄 将与普京在符拉迪沃斯托克会面'
-                }, {
-                    img_url: 'https://pics6.baidu.com/feed/e850352ac65c1038b18c032c7d112b17b17e8970.jpeg?token=6f22e91963efd0cdf25dadf74204aea5&s=DCF225C24D4A0E5500D0B0020300B080',
-                    img_title: '金正恩今晨启程访俄 将与普京在符拉迪沃斯托克会面'
-                }, {
-                    img_url: 'https://pics6.baidu.com/feed/e850352ac65c1038b18c032c7d112b17b17e8970.jpeg?token=6f22e91963efd0cdf25dadf74204aea5&s=DCF225C24D4A0E5500D0B0020300B080',
-                    img_title: '金正恩今晨启程访俄 将与普京在符拉迪沃斯托克会面'
-                }, {
-                    img_url: 'https://pics6.baidu.com/feed/e850352ac65c1038b18c032c7d112b17b17e8970.jpeg?token=6f22e91963efd0cdf25dadf74204aea5&s=DCF225C24D4A0E5500D0B0020300B080',
-                    img_title: '金正恩今晨启程访俄 将与普京在符拉迪沃斯托克会面'
-                }, {
-                    img_url: 'https://pics6.baidu.com/feed/e850352ac65c1038b18c032c7d112b17b17e8970.jpeg?token=6f22e91963efd0cdf25dadf74204aea5&s=DCF225C24D4A0E5500D0B0020300B080',
-                    img_title: '金正恩今晨启程访俄 将与普京在符拉迪沃斯托克会面'
-                }, {
-                    img_url: 'https://pics6.baidu.com/feed/e850352ac65c1038b18c032c7d112b17b17e8970.jpeg?token=6f22e91963efd0cdf25dadf74204aea5&s=DCF225C24D4A0E5500D0B0020300B080',
-                    img_title: '金正恩今晨启程访俄 将与普京在符拉迪沃斯托克会面'
-                }, {
-                    img_url: 'https://pics6.baidu.com/feed/e850352ac65c1038b18c032c7d112b17b17e8970.jpeg?token=6f22e91963efd0cdf25dadf74204aea5&s=DCF225C24D4A0E5500D0B0020300B080',
-                    img_title: '金正恩今晨启程访俄 将与普京在符拉迪沃斯托克会面'
-                }]
+                item_data: null
             }
         }
     }

@@ -5,7 +5,8 @@
 </template>
 
 <script>
-    import img from '../static/images/test.jpg'
+    // import img from '../static/images/test.jpg'
+    let img = '';
     export default {
         name: "PostImage",
         props:['post_id','img_id'],
