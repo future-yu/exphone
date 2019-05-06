@@ -9,10 +9,10 @@
         </div>
         <div class="item_box">
             <el-row :gutter="5">
-                <router-link v-for="item in item_data" :key="item.id" to="/post/detail/1">
+                <router-link v-for="item in item_data" :key="item.id" :to="'/post/detail/'+item['post_info']">
                     <el-col :sm="8" :md="6">
                         <div class="item">
-                            <img :src="item.img_url[1]||item.img_url[0]" :alt="item.img_title" class="item_img">
+                            <img :src="('http://localhost:3000'+item.img_url[0])||item.img_url[1]" :alt="item.img_title" class="item_img">
                             <p class="item_title">{{item.img_title}}</p>
                         </div>
                     </el-col>
@@ -28,7 +28,6 @@
         name: "Index",
         created:function(){
             this.api.getPostPage(1).then(res=>{
-                // debugger
                 this.item_data = res.data;
             })
         },

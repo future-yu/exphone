@@ -5,7 +5,6 @@
 </template>
 
 <script>
-    // import img from '../static/images/test.jpg'
     let img = '';
     export default {
         name: "PostImage",

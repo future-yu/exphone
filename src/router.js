@@ -20,8 +20,9 @@ export default new Router({
         name: 'user',
         component: User
     }, {
-        path: '/post/detail/:id',
-        component: PostDetail
+        path: '/post/detail/:post_id',
+        component: PostDetail,
+        props: true
     }, {
         path:'/post/image',
         component:PostImage,
